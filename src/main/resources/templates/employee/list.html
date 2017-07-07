@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' rel='stylesheet'/>
+</head>
+<body>
+<div class="container">
+
+    <h1>List of Employees<span class="pull-right">
+                <a class="btn btn-primary" th:href="@{'/'}">Home</a>
+
+        <a class="btn btn-primary" th:href="@{'/employee/add'}">Add Employee</a>
+    </span></h1>
+    <hr/>
+    <table class="table table-bordered">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Department</th>
+        </tr>
+        <tr th:each="emp,itr : ${employees}">
+            <td th:text="${itr.count}">No</td>
+
+            <td>
+                <a class="btn btn-link" th:href="@{'/employee/show/' + ${emp.id}}">
+                    <span th:text="${emp.name}">Name</span>
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-link" th:href="@{'/department/show/' + ${emp.department !=null ? emp.department.id : ''}}">
+
+                    <span th:text="${emp.department != null} ? ${emp.department.name} : ${''}">Department</span>
+
+                </a>
+            </td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
