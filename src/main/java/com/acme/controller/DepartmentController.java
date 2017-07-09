@@ -41,6 +41,12 @@ public class DepartmentController {
         return PATH + "/create";
     }
 
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String edit(@PathVariable("id")long id,Model model){
+        model.addAttribute("department",departmentService.get(id));
+        return PATH + "/edit";
+    }
+
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(@ModelAttribute Department department, Model model){
         department = departmentService.save(department);
@@ -48,16 +54,16 @@ public class DepartmentController {
         return "redirect:" + PATH + "/show/" + department.getId();
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute Department department, Model model){
         department = departmentService.update(department);
-        model.addAttribute("department" ,department);
+       // model.addAttribute("department" ,department);
         return "redirect:" + PATH + "/show/" + department.getId();
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("id")long id,Model model){
-        model.addAttribute("department",departmentService.delete());
-        return PATH;
+    @RequestMapping(value = "/delete/{id}")
+    public String delete(@PathVariable("id")long id){
+        departmentService.delete(id);
+        return "redirect:" + PATH + "/list";
     }
 }

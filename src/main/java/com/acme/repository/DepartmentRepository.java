@@ -20,4 +20,7 @@ public interface DepartmentRepository extends CrudRepository<Department,Long> {
 
     List<Department> findAll();
 
+    void deleteById(long id);
+
+    Department findById(long id);
 }

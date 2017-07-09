@@ -51,13 +51,15 @@ public class EmployeeController {
     @RequestMapping("/show/{id}")
     public String show(@PathVariable("id")long id,Model model){
         model.addAttribute("employee",employeeService.get(id));
+        model.addAttribute("workers", employeeService.getWorkers(id));
+
         return PATH+"/show";
     }
     @RequestMapping("/edit/{id}")
     public String edit(@PathVariable("id")long id,Model model){
         model.addAttribute("employee",employeeService.get(id));
         model.addAttribute("departments",departmentService.list());
-        model.addAttribute("employees", employeeService.list());
+        model.addAttribute("employees", employeeService.listEdit(id));
         return PATH+"/edit";
     }
 

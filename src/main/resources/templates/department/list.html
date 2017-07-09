@@ -10,7 +10,8 @@
 
     <h1>List of Departments
         <span class="pull-right">
-        <a class="btn btn-primary" href="create">Add Department</a>
+            <a class="btn btn-primary" th:href="@{'/'}">Home</a>
+            <a class="btn btn-primary" href="create">Add Department</a>
         </span>
     </h1>
     <hr/>
@@ -25,9 +26,11 @@
             <td th:text="${itr.count}">No</td>
             <td th:text="${dep.name}">Name</td>
             <td>
-                <a class="btn btn-success" th:href="@{'/employee/list/' + ${dep.id}}">Employees</a>
-                <a class="btn btn-warning" th:href="@{'edit/' + ${dep.id}}">Edit</a>
-                <a class="btn btn-danger" th:href="@{'delete/' + ${dep.id}}">Delete</a>
+                <a class="btn btn-success" th:href="@{'/employee/list/' + ${dep.id}}" >Employees</a>
+                <a class="btn btn-warning" th:href="@{'/department/edit/' + ${dep.id}}">Edit</a>
+                <a class="btn btn-danger" th:href="@{'/department/delete/' + ${dep.id}}">Delete</a>
+                <!--<a class="btn btnn-danger" th:href="@{'/department/list/' + ${dep.id}}">Delete</a>-->
+
             </td>
         </tr>
     </table>

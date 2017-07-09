@@ -20,5 +20,8 @@ public interface EmployeeRepository extends CrudRepository<Employee,Long> {
     List<Employee> findAll();
 
     Employee findById(long id);
+
     List<Employee> findByDepartmentId(Long departmentId);
+
+    List<Employee> findAllWorkersByManagerId(long id);
 }

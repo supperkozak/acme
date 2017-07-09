@@ -50,16 +50,16 @@
         <tr>
             <th>Subordinates</th>
             <td>
-        <tr th:each="sub,itr : ${employee.workers}">
+        <!--<tr th:each="sub : ${employee.workers}">-->
+        <a th:each="sub,itr : ${workers}">
+            <!--<td th:text="${itr.count}">No</td>-->
 
-            <td>
                 <a class="btn btn-link" th:href="@{'/employee/show/' + ${sub.id}}">
 
                     <span th:text="${sub.name}">Name</span>
 
                 </a>
-            </td>
-        </tr>
+        </a>
         </td>
         </tr>
     </table>

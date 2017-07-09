@@ -1,0 +1,21 @@
+logging:
+ level:
+   ROOT: INFO
+server:
+ port: 8080
+ context-path: /
+
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: postgresql
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgres://vhnktnlqyrwhuu:71276c613e410f51731f53ba9f5980dec9ac3f8896da3eb47c0f0602852222f0@ec2-54-225-182-108.compute-1.amazonaws.com:5432/der8ms0ff13jd
+
+    password: 71276c613e410f51731f53ba9f5980dec9ac3f8896da3eb47c0f0602852222f0
+    username: vhnktnlqyrwhuu
