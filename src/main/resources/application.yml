@@ -1,11 +1,15 @@
 logging:
  level:
    ROOT: INFO
-server:
- context-path: /
-
 
 spring:
+ profiles:
+   active: "heroku"
+
+---
+
+spring:
+  profiles: heroku
   jpa:
     generate-ddl: false
     show-sql: true
@@ -15,4 +19,28 @@ spring:
   datasource:
     platform: postgresql
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgres://vhnktnlqyrwhuu:71276c613e410f51731f53ba9f5980dec9ac3f8896da3eb47c0f0602852222f0@ec2-54-225-182-108.compute-1.amazonaws.com:5432/der8ms0ff13jd
+    url: jdbc:postgres://ec2-23-23-248-162.compute-1.amazonaws.com:5432/dbekj0vgh5pnqc
+    username: xaaczthrpsianq
+    password: 16cefbb906f22bed9ba86c6634f3e4a9a7f4d38e81f0ad2471de434fd65e4764
+server:
+ context-path: /
+
+---
+
+spring:
+  profiles: local
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+    hibernate:
+       ddl-auto: update
+  datasource:
+    platform: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/acme
+    password: root
+    username: root
+server:
+  port: 8080
+  context-path: /
