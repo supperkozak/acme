@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/acme-1.0-SNAPSHOT.jar  -Dserver.port=$PORT
+worker: java -jar target/*.jar
