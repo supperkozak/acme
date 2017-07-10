@@ -1,1 +1,1 @@
-web: java -jar target/*.jar
+web: java -jar target/acme-1.0-SNAPSHOT.jar
