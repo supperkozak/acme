@@ -1,1 +1,1 @@
-web: java -jar target/acme-1.0-SNAPSHOT.jar --jhipster.metrics.jmx.enabled=false
+web: java -jar target/acme-1.0-SNAPSHOT.jar --jhipster.metrics.jmx.enabled=false -Dserver.port=$PORT
