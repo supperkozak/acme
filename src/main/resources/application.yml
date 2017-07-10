@@ -1,6 +1,6 @@
 logging:
  level:
-   ROOT: INFO
+   ROOT: WARN
 
 spring:
  profiles:
@@ -24,6 +24,9 @@ spring:
     password: 16cefbb906f22bed9ba86c6634f3e4a9a7f4d38e81f0ad2471de434fd65e4764
 server:
  context-path: /
+logging:
+  level:
+    ROOT: WARN
 
 ---
 
